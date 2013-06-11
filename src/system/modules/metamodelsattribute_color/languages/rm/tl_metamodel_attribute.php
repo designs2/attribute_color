@@ -8,8 +8,8 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2013-06-11T01:42:27+02:00
+ * last-updated: 2013-06-11T04:16:19+02:00
  */
 
-
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text'] = 'Text';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Tscherner ina colur';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text']  = 'Text';
