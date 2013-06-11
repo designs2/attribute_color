@@ -18,4 +18,4 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text']    = 'Text';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color']    = 'Color picker';
