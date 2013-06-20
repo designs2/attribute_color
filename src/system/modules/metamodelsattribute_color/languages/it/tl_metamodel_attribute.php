@@ -4,12 +4,12 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/metamodels/language/de/
+ * @link https://www.transifex.com/projects/p/metamodels/language/it/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2013-06-11T04:16:19+02:00
+ * last-updated: 2013-06-11T16:12:13+02:00
  */
 
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Farbwähler';
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text']  = 'Text';
+
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Selezione colore';
