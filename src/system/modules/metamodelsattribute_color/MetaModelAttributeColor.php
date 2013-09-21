@@ -15,6 +15,8 @@
  * @filesource
  */
 
+use MetaModels\Attribute\BaseSimple;
+
 /**
  * This is the MetaModelAttribute class for handling color fields.
  *
@@ -22,7 +24,7 @@
  * @subpackage AttributeColor
  * @author     Stefan Heimes <cms@men-at-work.de>
  */
-class MetaModelAttributeColor extends MetaModelAttributeSimple
+class MetaModelAttributeColor extends BaseSimple
 {
 
 	public function getSQLDataType()
