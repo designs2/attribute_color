@@ -29,7 +29,7 @@ class MetaModelAttributeColor extends BaseSimple
 
 	public function getSQLDataType()
 	{
-		return 'smallblob NULL';
+		return 'TINYBLOB NULL';
 	}
 
 	public function getAttributeSettingNames()
