@@ -18,12 +18,12 @@
 $GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id']['color'] = array
 (
 	'presentation' => array(
-		'tl_class', 
+		'tl_class',
 	),
 	'functions'  => array(
 		'mandatory',
 	),
-	'overview' => array(		
+	'overview' => array(
 		'filterable',
 		'searchable',
 		'sortable',
