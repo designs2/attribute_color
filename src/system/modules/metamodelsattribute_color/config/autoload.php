@@ -16,16 +16,6 @@
  */
 
 /**
- * Register the classes
- */
-ClassLoader::addClasses(array
-(
-	'MetaModelAttributeColor'              => 'system/modules/metamodelsattribute_color/MetaModelAttributeColor.php',
-	'TableMetaModelsAttributeColor'        => 'system/modules/metamodelsattribute_color/TableMetaModelsAttributeColor.php',
-));
-
-
-/**
  * Register the templates
  */
 TemplateLoader::addFiles(array

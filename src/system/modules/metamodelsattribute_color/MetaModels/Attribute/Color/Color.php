@@ -15,6 +15,8 @@
  * @filesource
  */
 
+namespace MetaModels\Attribute\Color;
+
 use MetaModels\Attribute\BaseSimple;
 
 /**
@@ -24,14 +26,19 @@ use MetaModels\Attribute\BaseSimple;
  * @subpackage AttributeColor
  * @author     Stefan Heimes <cms@men-at-work.de>
  */
-class MetaModelAttributeColor extends BaseSimple
+class Color extends BaseSimple
 {
-
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getSQLDataType()
 	{
 		return 'TINYBLOB NULL';
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getAttributeSettingNames()
 	{
 		return array_merge(parent::getAttributeSettingNames(), array(
@@ -43,27 +50,23 @@ class MetaModelAttributeColor extends BaseSimple
 		));
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getFieldDefinition($arrOverrides = array())
 	{
-		$arrFieldDef=parent::getFieldDefinition($arrOverrides);
-		
-		$arrFieldDef['inputType'] = 'text';
+		$arrFieldDef = parent::getFieldDefinition($arrOverrides);
 
-		$arrFieldDef['eval']['maxlength'] = 6;
-		$arrFieldDef['eval']['size'] = 2;
-		$arrFieldDef['eval']['multiple'] = true;
-		$arrFieldDef['eval']['isHexColor'] = true;
+		$arrFieldDef['inputType']              = 'text';
+		$arrFieldDef['eval']['maxlength']      = 6;
+		$arrFieldDef['eval']['size']           = 2;
+		$arrFieldDef['eval']['multiple']       = true;
+		$arrFieldDef['eval']['isHexColor']     = true;
 		$arrFieldDef['eval']['decodeEntities'] = true;
-		$arrFieldDef['eval']['tl_class'] .= ' wizard inline';
+		$arrFieldDef['eval']['tl_class']      .= ' wizard inline';
 
-		// Version compare for colorpicker.
-		if(version_compare(3, VERSION, '>'))
-		{
-			$arrFieldDef['wizard'] = array(
-				array('TableMetaModelsAttributeColor', 'colorPicker')
-			);
-		}
-		else
+		// Version compare for color picker - from Contao 3 on this is handled as event.
+		if (version_compare(3, VERSION, '<'))
 		{
 			$arrFieldDef['eval']['colorpicker'] = true;
 		}

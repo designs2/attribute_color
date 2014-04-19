@@ -47,6 +47,14 @@
 		"metamodels/php-coding-standard":"dev-master",
 		"cyberspectrum/contao-toolbox": "dev-master"
 	},
+	"conflict": {
+		"contao/core": "3.0.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"MetaModels": "src/system/modules/metamodelsattribute_color"
+		}
+	},
 	"extra":{
 		"contao": {
 			"symlinks":{
