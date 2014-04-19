@@ -15,8 +15,5 @@
  * @filesource
  */
 
-$GLOBALS['METAMODELS']['attributes']['color'] = array
-(
-	'class' => 'MetaModelAttributeColor',
-	'image' => 'system/modules/metamodelsattribute_color/html/color.png'
-);
+$GLOBALS['METAMODELS']['attributes']['color']['class'] = 'MetaModelAttributeColor';
+$GLOBALS['METAMODELS']['attributes']['color']['image'] = 'system/modules/metamodelsattribute_color/html/color.png';
