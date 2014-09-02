@@ -15,7 +15,5 @@
  * @filesource
  */
 
-/**
- * Fields
- */
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color']    = 'Color picker';
+// Fields.
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Color picker';
