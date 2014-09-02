@@ -66,8 +66,7 @@ class Color extends BaseSimple
         $arrFieldDef['eval']['tl_class']      .= ' wizard inline';
 
         // Version compare for color picker - from Contao 3 on this is handled as event.
-        if (version_compare(3, VERSION, '<'))
-        {
+        if (version_compare(3, VERSION, '<')) {
             $arrFieldDef['eval']['colorpicker'] = true;
         }
 

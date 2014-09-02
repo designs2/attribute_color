@@ -31,9 +31,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * @subpackage AttributeColor
  * @author     Stefan Heimes <cms@men-at-work.de>
  */
-class Subscriber
-    extends BaseSubscriber
-    implements EventSubscriberInterface
+class Subscriber extends BaseSubscriber implements EventSubscriberInterface
 {
     /**
      * {@inheritDoc}
@@ -54,8 +52,7 @@ class Subscriber
      */
     public function populate(PopulateAttributeEvent $event)
     {
-        if (!($event->getAttribute() instanceof Color))
-        {
+        if (!($event->getAttribute() instanceof Color)) {
             return;
         }
 
@@ -88,7 +85,7 @@ class Subscriber
             'pickcolor.gif',
             $environment->getTranslator('MSC.colorpicker'),
             'style="vertical-align:top;cursor:pointer" id="moo_' . $property . '"'
-            );
+        );
 
         $environment->getEventPropagator()->propagate(ContaoEvents::IMAGE_GET_HTML, $imageEvent);
 
