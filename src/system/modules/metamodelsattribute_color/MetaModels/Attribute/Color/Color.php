@@ -22,55 +22,55 @@ use MetaModels\Attribute\BaseSimple;
 /**
  * This is the MetaModelAttribute class for handling color fields.
  *
- * @package	   MetaModels
+ * @package    MetaModels
  * @subpackage AttributeColor
  * @author     Stefan Heimes <cms@men-at-work.de>
  */
 class Color extends BaseSimple
 {
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getSQLDataType()
-	{
-		return 'TINYBLOB NULL';
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public function getSQLDataType()
+    {
+        return 'TINYBLOB NULL';
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getAttributeSettingNames()
-	{
-		return array_merge(parent::getAttributeSettingNames(), array(
-			'flag',
-			'searchable',
-			'filterable',
-			'sortable',
-			'mandatory'
-		));
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public function getAttributeSettingNames()
+    {
+        return array_merge(parent::getAttributeSettingNames(), array(
+            'flag',
+            'searchable',
+            'filterable',
+            'sortable',
+            'mandatory'
+        ));
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getFieldDefinition($arrOverrides = array())
-	{
-		$arrFieldDef = parent::getFieldDefinition($arrOverrides);
+    /**
+     * {@inheritDoc}
+     */
+    public function getFieldDefinition($arrOverrides = array())
+    {
+        $arrFieldDef = parent::getFieldDefinition($arrOverrides);
 
-		$arrFieldDef['inputType']              = 'text';
-		$arrFieldDef['eval']['maxlength']      = 6;
-		$arrFieldDef['eval']['size']           = 2;
-		$arrFieldDef['eval']['multiple']       = true;
-		$arrFieldDef['eval']['isHexColor']     = true;
-		$arrFieldDef['eval']['decodeEntities'] = true;
-		$arrFieldDef['eval']['tl_class']      .= ' wizard inline';
+        $arrFieldDef['inputType']              = 'text';
+        $arrFieldDef['eval']['maxlength']      = 6;
+        $arrFieldDef['eval']['size']           = 2;
+        $arrFieldDef['eval']['multiple']       = true;
+        $arrFieldDef['eval']['isHexColor']     = true;
+        $arrFieldDef['eval']['decodeEntities'] = true;
+        $arrFieldDef['eval']['tl_class']      .= ' wizard inline';
 
-		// Version compare for color picker - from Contao 3 on this is handled as event.
-		if (version_compare(3, VERSION, '<'))
-		{
-			$arrFieldDef['eval']['colorpicker'] = true;
-		}
+        // Version compare for color picker - from Contao 3 on this is handled as event.
+        if (version_compare(3, VERSION, '<'))
+        {
+            $arrFieldDef['eval']['colorpicker'] = true;
+        }
 
-		return $arrFieldDef;
-	}
+        return $arrFieldDef;
+    }
 }

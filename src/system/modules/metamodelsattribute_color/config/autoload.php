@@ -20,5 +20,5 @@
  */
 TemplateLoader::addFiles(array
 (
-	'mm_attr_color'              => 'system/modules/metamodelsattribute_color/templates',
+    'mm_attr_color' => 'system/modules/metamodelsattribute_color/templates',
 ));

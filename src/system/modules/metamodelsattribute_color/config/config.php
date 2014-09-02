@@ -19,4 +19,4 @@ $GLOBALS['METAMODELS']['attributes']['color']['class'] = 'MetaModels\Attribute\C
 $GLOBALS['METAMODELS']['attributes']['color']['image'] = 'system/modules/metamodelsattribute_color/html/color.png';
 
 $GLOBALS['TL_EVENTS'][\ContaoCommunityAlliance\Contao\EventDispatcher\Event\CreateEventDispatcherEvent::NAME][] =
-	'MetaModels\Attribute\Color\Subscriber::registerEvents';
+    'MetaModels\Attribute\Color\Subscriber::registerEvents';
