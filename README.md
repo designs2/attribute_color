@@ -5,3 +5,5 @@
 
 Color
 =====
+
+The color attribute 
