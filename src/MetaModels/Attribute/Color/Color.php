@@ -41,13 +41,16 @@ class Color extends BaseSimple
      */
     public function getAttributeSettingNames()
     {
-        return array_merge(parent::getAttributeSettingNames(), array(
-            'flag',
-            'searchable',
-            'filterable',
-            'sortable',
-            'mandatory'
-        ));
+        return array_merge(
+            parent::getAttributeSettingNames(),
+            array(
+                'flag',
+                'searchable',
+                'filterable',
+                'sortable',
+                'mandatory'
+            )
+        );
     }
 
     /**
