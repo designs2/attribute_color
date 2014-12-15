@@ -11,5 +11,4 @@
  * last-updated: 2013-06-11T01:42:27+02:00
  */
 
-
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text'] = 'Κειμενο';

@@ -12,4 +12,3 @@
  */
 
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Sélecteur de couleur';
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text']  = 'Texte';

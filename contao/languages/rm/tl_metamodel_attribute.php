@@ -12,4 +12,3 @@
  */
 
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Tscherner ina colur';
-$GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['text']  = 'Text';
