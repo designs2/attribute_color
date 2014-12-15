@@ -20,9 +20,8 @@ namespace MetaModels\Attribute\Color;
 use ContaoCommunityAlliance\Contao\Bindings\ContaoEvents;
 use ContaoCommunityAlliance\Contao\Bindings\Events\Image\GenerateHtmlEvent;
 use ContaoCommunityAlliance\DcGeneral\Contao\View\Contao2BackendView\Event\ManipulateWidgetEvent;
+use MetaModels\DcGeneral\Data\Model;
 use MetaModels\DcGeneral\Events\BaseSubscriber;
-use MetaModels\Events\PopulateAttributeEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Handle events regarding the color attributes.
@@ -31,40 +30,16 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * @subpackage AttributeColor
  * @author     Stefan Heimes <cms@men-at-work.de>
  */
-class Subscriber extends BaseSubscriber implements EventSubscriberInterface
+class Subscriber extends BaseSubscriber
 {
     /**
      * {@inheritDoc}
      */
-    public static function getSubscribedEvents()
+    public function registerEventsInDispatcher()
     {
-        return array(
-            PopulateAttributeEvent::NAME => __CLASS__ . '::populate()'
-        );
-    }
-
-    /**
-     * Registers the events for the attribute.
-     *
-     * @param PopulateAttributeEvent $event The event.
-     *
-     * @return void
-     */
-    public function populate(PopulateAttributeEvent $event)
-    {
-        if (!($event->getAttribute() instanceof Color)) {
-            return;
-        }
-
-        $this->registerListeners(
-            array(
-                ManipulateWidgetEvent::NAME => __CLASS__ . '::addDatePicker'
-            ),
-            $event->getDispatcher(),
-            array(
-                $event->getMetaModel()->getTableName(),
-                $event->getAttribute()->getColName()
-            )
+        $this->addListener(
+            ManipulateWidgetEvent::NAME,
+            array($this, 'addColorPicker')
         );
     }
 
@@ -75,11 +50,22 @@ class Subscriber extends BaseSubscriber implements EventSubscriberInterface
      *
      * @return void
      */
-    public static function addDatePicker(ManipulateWidgetEvent $event)
+    public static function addColorPicker(ManipulateWidgetEvent $event)
     {
+        $model = $event->getModel();
+        if (!$model instanceof Model) {
+            return;
+        }
+        /** @var Model $model */
+        $metaModel = $model->getItem()->getMetaModel();
+        $property  = $event->getProperty()->getName();
+
+        if (!$metaModel->getAttribute($property) instanceof Color) {
+            return;
+        }
+
         $environment = $event->getEnvironment();
         $widget      = $event->getWidget();
-        $property    = $event->getProperty()->getName();
 
         $imageEvent = new GenerateHtmlEvent(
             'pickcolor.gif',
@@ -87,9 +73,10 @@ class Subscriber extends BaseSubscriber implements EventSubscriberInterface
             'style="vertical-align:top;cursor:pointer" id="moo_' . $property . '"'
         );
 
-        $environment->getEventPropagator()->propagate(ContaoEvents::IMAGE_GET_HTML, $imageEvent);
+        $environment->getEventDispatcher()->dispatch(ContaoEvents::IMAGE_GET_HTML, $imageEvent);
 
-        $widget->wizard = $event->getHtml() . '
+        /** @noinspection PhpUndefinedFieldInspection */
+        $widget->wizard = $imageEvent->getHtml() . '
             <script>
             new MooRainbow("moo_' . $property . '", {
             id:"ctrl_' . $property . '_0",

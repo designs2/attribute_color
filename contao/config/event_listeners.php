@@ -15,5 +15,12 @@
  * @filesource
  */
 
-$GLOBALS['METAMODELS']['attributes']['color']['class'] = 'MetaModels\Attribute\Color\Color';
-$GLOBALS['METAMODELS']['attributes']['color']['image'] = 'system/modules/metamodelsattribute_color/html/color.png';
+use MetaModels\Events\MetaModelsBootEvent;
+use MetaModels\MetaModelsEvents;
+
+return array
+(
+    MetaModelsEvents::SUBSYSTEM_BOOT_BACKEND => function (MetaModelsBootEvent $event) {
+        new MetaModels\Attribute\Color\Subscriber($event->getServiceContainer());
+    }
+);
