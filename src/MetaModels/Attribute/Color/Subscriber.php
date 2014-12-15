@@ -9,7 +9,7 @@
  *
  * @package     MetaModels
  * @subpackage  AttributeColor
- * @author      Stefan Heimes <cms@men-at-work.de>
+ * @author      Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @copyright   The MetaModels team.
  * @license     LGPL.
  * @filesource
