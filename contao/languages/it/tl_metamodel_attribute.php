@@ -11,5 +11,4 @@
  * last-updated: 2013-06-11T16:12:13+02:00
  */
 
-
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['color'] = 'Selezione colore';
