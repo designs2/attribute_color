@@ -21,7 +21,9 @@ use MetaModels\MetaModelsEvents;
 
 return array
 (
-    MetaModelsEvents::SUBSYSTEM_BOOT_BACKEND => function (MetaModelsBootEvent $event) {
-        new MetaModels\Attribute\Color\Subscriber($event->getServiceContainer());
-    }
+    MetaModelsEvents::SUBSYSTEM_BOOT_BACKEND => array(
+        function (MetaModelsBootEvent $event) {
+            new MetaModels\Attribute\Color\Subscriber($event->getServiceContainer());
+        }
+    )
 );
