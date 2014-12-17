@@ -16,6 +16,8 @@
  * @filesource
  */
 
+use MetaModels\Attribute\Color\AttributeTypeFactory;
+use MetaModels\Attribute\Events\CreateAttributeFactoryEvent;
 use MetaModels\Events\MetaModelsBootEvent;
 use MetaModels\MetaModelsEvents;
 
@@ -25,5 +27,11 @@ return array
         function (MetaModelsBootEvent $event) {
             new MetaModels\Attribute\Color\Subscriber($event->getServiceContainer());
         }
-    )
+    ),
+    MetaModelsEvents::ATTRIBUTE_FACTORY_CREATE => array(
+        function (CreateAttributeFactoryEvent $event) {
+            $factory = $event->getFactory();
+            $factory->addTypeFactory(new AttributeTypeFactory());
+        }
+    ),
 );
